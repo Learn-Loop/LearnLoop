@@ -1,4 +1,4 @@
-import mongoose  from "mongoose";
+import mongoose from "mongoose";
 
 const educationSchema = new mongoose.Schema({
   collegeName: { type: String, required: true },
@@ -18,6 +18,10 @@ const userSchema = new mongoose.Schema({
   experience: {
     company: [{ type: String }],
   },
+
+  skilledIn: { type: [String], default: [] },
+  skillWant: { type: [String], default: [] },
+
 });
 
 const User = mongoose.model("User", userSchema);
