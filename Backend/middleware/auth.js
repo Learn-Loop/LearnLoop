@@ -1,4 +1,4 @@
-import { verify } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import User from "../models/user.model.js";
 
 export default async function (req, res, next) {
@@ -7,7 +7,7 @@ export default async function (req, res, next) {
     if (!authHeader) return res.status(401).json({ error: "No token" });
 
     const token = authHeader.replace("Bearer ", "");
-    const payload = verify(token, process.env.JWT_SECRET);
+    const payload = jwt.verify(token, process.env.JWT_SECRET);
     const user = await User.findById(payload.id).select("-password");
     if (!user) return res.status(401).json({ error: "Invalid token" });
 
