@@ -4,6 +4,7 @@ import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
 import DashboardPage from './pages/DashboardPage'
 import DiscoverPage from './pages/DiscoverPage'
+import ProtectedRoute from './components/ProtectedRoute.tsx'
 import './index.css'
 
 function App() {
@@ -13,11 +14,18 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <DashboardPage />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/discover" element={<DiscoverPage />} />
       </Routes>
     </Router>
-  )
+  );
 }
 
 export default App
