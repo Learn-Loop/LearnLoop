@@ -130,14 +130,14 @@ export default function DiscoverPage() {
               </span>
             </Link>
             <div className="flex items-center space-x-4">
-              <Link to="/dashboard">
+              {/* <Link to="/dashboard">
                 <Button
                   variant="ghost"
                   className="hover:bg-white/10 transition-all duration-300 hover:scale-105"
                 >
                   Dashboard
                 </Button>
-              </Link>
+              </Link> */}
               <Link to="/login">
                 <Button
                   variant="ghost"
